@@ -46,4 +46,11 @@
       </ul>
     </div>
   </div>
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-danger" role="alert">
+      <strong><%= msg %></strong>
+    </div>
+  <% end %>
 </nav>
+
+
