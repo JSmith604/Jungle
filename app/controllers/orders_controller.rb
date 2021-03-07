@@ -1,7 +1,11 @@
+require "pp"
 class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    pp "order", @order
+    
+
   end
 
   def create
@@ -52,6 +56,7 @@ class OrdersController < ApplicationController
         total_price: product.price * quantity
       )
     end
+   
     order.save!
     order
   end
