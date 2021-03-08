@@ -1,9 +1,10 @@
-class SessionController < ApplicationController
-  def create
+class SessionsController < ApplicationController
+  def new
+
     
   end
 
-  def new
+  def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
@@ -18,3 +19,6 @@ class SessionController < ApplicationController
     redirect_to '/login'
   end
 end
+
+
+#Changed name of views and controller to sessions instead of session
