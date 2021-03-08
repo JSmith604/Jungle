@@ -14,9 +14,13 @@ Rails.application.routes.draw do
 
   get 'about/' => 'about#index'
 
+
+
+
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
+    resources :categories, except: [:edit, :update, :show, :destroy]
   end
 
 
