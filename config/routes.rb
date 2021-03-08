@@ -14,6 +14,13 @@ Rails.application.routes.draw do
 
   get 'about/' => 'about#index'
 
+  get '/register' => 'users#new'
+  post '/users' => 'users#create'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+ 
 
 
 
@@ -22,6 +29,8 @@ Rails.application.routes.draw do
     resources :products, except: [:edit, :update, :show]
     resources :categories, except: [:edit, :update, :show, :destroy]
   end
+
+
 
 
 
