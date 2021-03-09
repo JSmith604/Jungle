@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-
+  before_filter :authorize
   def show
     if cart.size == 0 
       redirect_to :products, notice: "Cart Empty"
