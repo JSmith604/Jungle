@@ -28,6 +28,17 @@ RSpec.describe User, type: :model do
       subject.password_confirmation = nil
       expect(subject).to_not be_valid
     end
+    it 'is not valid if password_confirmation does not match password' do
+      subject.password_confirmation = "nope"
+      expect(subject).to_not be_valid
+    end
+   
+    before { described_class.create!(first_name: 'test', last_name: 'test', email: 'bob@gmail.com', password: "testPassword", password_confirmation: "testPassword")}
+    it 'is not valid if the email already exists in the user database' do
+      subject.email = "bob@gmail.com"
+      expect(subject).to_not be_valid
+      
+    end
   end 
 end
 
